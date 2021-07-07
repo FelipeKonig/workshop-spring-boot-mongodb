@@ -32,7 +32,7 @@ public class UserResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
-	@RequestMapping(value = "{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<UserDTO> findById(@PathVariable String id){
 		User user = service.findById(id);
 		
@@ -49,7 +49,7 @@ public class UserResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<UserDTO> deleteById(@PathVariable String id){
 		service.delete(id);
 		
@@ -65,7 +65,7 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value = "{id}/posts", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
 	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
 		User user = service.findById(id);
 		
